@@ -24,18 +24,39 @@
         .seo-text { padding: 35px 20px; background-color: #0a0a0f; color: #999; font-size: 15px; line-height: 1.8; }
         .seo-text h2 { color: #e6e6e6; font-size: 21px; margin-top: 35px; border-left: 4px solid #ff007f; padding-left: 15px; }
         .seo-text strong { color: #bbb; }
+            promo-banner {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+            cursor: pointer;
+        }
+        .promo-text-highlight {
+            color: #00ffcc;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: #111;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: 1px dashed #00ffcc;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>💎 EVA CASINO CLUB</h1>
     </div>
-    <div class="hero">
-        <div class="hero-title">Лучший гемблинг-проект года</div>
-        <div class="hero-bonus">ЗАБЕРИ СВОИ 250 FS<br>СЕЙЧАС!</div>
-        
-        <a href="javascript:void(0);" class="btn-main">ИГРАТЬ НА ДЕНЬГИ</a>
-        <a href="javascript:void(0);" class="btn-main btn-sec">РЕГИСТРАЦИЯ ПРОФИЛЯ</a>
+<div class="hero" style="padding-top: 25px;">
+        <img src="/promo.jpg" alt="Промокод Eva Casino CASINORF" class="promo-banner" onclick="fireRedirect()">
+        <div class="hero-title">Эксклюзивный бонус для новых игроков!</div>
+        <p style="color: #ccc; margin-bottom: 25px; font-size: 16px;">
+            Вводи промокод <span class="promo-text-highlight">CASINORF</span> при регистрации
+        </p>
+        <a href="javascript:void(0);" class="btn-main">АКТИВИРОВАТЬ 900 FS</a>
+        <a href="javascript:void(0);" class="btn-main btn-sec">ВХОД И РЕГИСТРАЦИЯ</a>
     </div>
     <div class="seo-text">
         <h2>Eva Casino: новый лидер индустрии азарта</h2>
