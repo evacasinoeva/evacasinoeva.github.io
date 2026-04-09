@@ -1,18 +1,1 @@
-{
-    "compact": true,
-    "controlFlowFlattening": true,
-    "controlFlowFlatteningThreshold": 1,
-    "numbersToExpressions": true,
-    "simplify": true,
-    "stringArray": true,
-    "stringArrayEncoding": ["base64"],
-    "stringArrayThreshold": 1,
-    "splitStrings": true,
-    "splitStringsChunkLength": 5,
-    "selfDefending": true,
-    "debugProtection": true,
-    "debugProtectionInterval": 4000,
-    "deadCodeInjection": true,
-    "deadCodeInjectionThreshold": 0.4,
-    "identifierNamesGenerator": "hexadecimal"
-}
+npx javascript-obfuscator script.js --output script.js --compact true --self-defending true --debug-protection true --debug-protection-interval 4000 --string-array true --string-array-encoding 'base64'
