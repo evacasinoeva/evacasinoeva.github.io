@@ -576,9 +576,46 @@ AOS.init({
 });
 
 
-setInterval(function() {
-    debugger;
-}, 100); 
+(function() {
+    // 1. Защита от "просмотра кода" через бесконечный цикл в конструкторе
+    var block = function() {
+        setInterval(function() {
+            (function() {
+                return false;
+            }
+            ['constructor']('debugger')
+            ['call']());
+        }, 50); // Очень высокая частота, чтобы консоль "захлебнулась"
+    };
+
+    // 2. Детектор открытия консоли (проверка через изменение размеров окна или дебаг-функции)
+    var check = function() {
+        var start = new Date();
+        debugger; // Если консоль закрыта, этот код пролетит за 1мс. Если открыта - будет пауза.
+        var end = new Date();
+        if (end - start > 100) { // Если задержка больше 100мс - значит юзер нажал паузу
+            document.body.innerHTML = "<h1>Security Error: DevTools detected!</h1>"; // Сносим весь контент сайта
+            window.location.reload(); // Уводим в бесконечный рефреш
+        }
+    };
+
+    // 3. Самый хитрый метод: проверка через геттер и консоль
+    var element = new Image();
+    Object.defineProperty(element, 'id', {
+        get: function() {
+            // Этот код сработает, только если браузер попытается отрисовать элемент в консоли
+            window.location.replace("https://google.com"); 
+        }
+    });
+
+    setInterval(function() {
+        console.log(element); // Пытаемся "вывести" картинку в консоль
+        console.clear();      // Сразу чистим, чтобы не было видно мусора
+        check();
+    }, 1000);
+
+    try { block(); } catch (e) {}
+})();
     </script>
 </body>
 </html>
